@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Christmas Card</string>
+    <string name="photo_description">Christmas Tree</string>
+    <string name="happy_holiday">Happy Holiday!</string>
+    <string name="from">from R and M</string>
+</resources>
