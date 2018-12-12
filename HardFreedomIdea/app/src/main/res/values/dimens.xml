@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="h4">34sp</dimen>
+    <dimen name="h5">24sp</dimen>
+    <dimen name="logo_width">116dp</dimen>
+    <dimen name="logo_height">108dp</dimen>
+    <dimen name="text_side_paddings">20dp</dimen>
+    <dimen name="text_topbot_paddings">40dp</dimen>
+</resources>

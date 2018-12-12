@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/logo_height"
+        android:orientation="horizontal"
+        android:background="@color/grey" >
+
+        <ImageView
+            android:id="@+id/yingyang"
+            android:layout_width="@dimen/logo_width"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/yingyang_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/yingyang" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/hard_freedom"
+            android:textSize="@dimen/h4"
+            android:textStyle="bold"
+            android:textColor="@color/darkgrey"
+            android:fontFamily="@font/balthazar"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textSize="@dimen/h5"
+        android:textAlignment="center"
+        android:fontFamily="@font/balthazar"
+        android:paddingRight="@dimen/text_side_paddings"
+        android:paddingLeft="@dimen/text_side_paddings"
+        android:paddingTop="@dimen/text_topbot_paddings"
+        android:paddingBottom="@dimen/text_topbot_paddings" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/lightgrey"
+        android:gravity="center_vertical"
+        android:text="@string/information"
+        android:textSize="@dimen/h5"
+        android:textAlignment="center"
+        android:fontFamily="@font/balthazar" />
+
+</LinearLayout>
