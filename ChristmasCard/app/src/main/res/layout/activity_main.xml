@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/photo"
-        android:contentDescription="@string/photo_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/photo_description"
         android:scaleType="centerCrop"
         android:src="@drawable/eagle" />
 
@@ -19,24 +19,24 @@
         android:id="@+id/happy_holiday_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/happy_holiday"
-        android:textSize="@dimen/text_size"
-        android:padding="@dimen/padding"
         android:fontFamily="casual"
-        android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:padding="@dimen/padding"
+        android:text="@string/happy_holiday"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/from_us_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/from"
-        android:textSize="@dimen/text_size"
-        android:padding="@dimen/padding"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:textColor="@color/white"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:fontFamily="casual"
+        android:padding="@dimen/padding"
+        android:text="@string/from"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold" />
 
 </RelativeLayout>
