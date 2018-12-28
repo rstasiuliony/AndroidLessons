@@ -28,6 +28,15 @@
             android:layout_marginLeft="@dimen/margin"
             android:paddingLeft="@dimen/padding" />
 
+        <CheckBox
+            android:id="@+id/check_chocolate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chocolate"
+            android:textSize="@dimen/text_size"
+            android:layout_marginLeft="@dimen/margin"
+            android:paddingLeft="@dimen/padding" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

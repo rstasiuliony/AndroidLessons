@@ -3,6 +3,7 @@
     <string name="column_quantity">Quantity</string>
     <string name="column_checkbox">Toppings</string>
     <string name="whipped">Whipped cream</string>
+    <string name="chocolate">Chocolate</string>
     <string name="button">Order</string>
     <string name="column_summary">Order Summary</string>
     <string name="currency_sign">&#8364;</string>

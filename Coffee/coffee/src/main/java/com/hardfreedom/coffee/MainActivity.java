@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private int quantity;
     private int price;
     private String addWhipped = "";
+    private String addChocolate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void orderSummaryTextView(View view) {
         CheckBox whipping = findViewById(R.id.check_whipped);
-        checkAddings(whipping);
-        if (addWhipped != "") {
+        if (whipping.isChecked()) {
+            checkAddings("whipping");
+        }
+        CheckBox chocolate = findViewById(R.id.check_chocolate);
+        if (chocolate.isChecked()) {
+            checkAddings("chocolate");
+        }
+        if (addWhipped != "" && addChocolate != "") {
+            displayMessage("Black coffee\n" + addWhipped + "\n" + addChocolate +"\nQuantity: "
+                    + quantity + "\nTotal: " + price + " EUR\nThank you!");
+        } else if (addChocolate != "") {
+            displayMessage("Black coffee\n" + addChocolate +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        } else if (addWhipped != "") {
             displayMessage("Black coffee\n" + addWhipped +"\nQuantity: " + quantity +
                     "\nTotal: " + price + " EUR\nThank you!");
         } else {
@@ -79,10 +92,12 @@ public class MainActivity extends AppCompatActivity {
         return price = quantity * price;
     }
 
-    private void checkAddings(CheckBox adding) {
-        if(adding.isChecked() == true) {
-            price = price + 1 * quantity;
+    private void checkAddings(String adding) {
+        if (adding.equals("whipping")) {
             addWhipped = addWhipped + "Add whipped cream";
+        } else {
+            addChocolate = addChocolate + "Add chocolate";
         }
+        price = price + 1 * quantity;
     }
 }
