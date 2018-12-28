@@ -7,10 +7,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="@dimen/margin"
+        android:paddingRight="@dimen/margin"
         tools:context="com.hardfreedom.coffee.MainActivity">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:inputType="textMultiLine"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,8 +34,9 @@
             android:layout_height="wrap_content"
             android:text="@string/whipped"
             android:textSize="@dimen/text_size"
-            android:layout_marginLeft="@dimen/margin"
-            android:paddingLeft="@dimen/padding" />
+            android:layout_marginStart="@dimen/margin"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding" />
 
         <CheckBox
             android:id="@+id/check_chocolate"
@@ -34,8 +44,9 @@
             android:layout_height="wrap_content"
             android:text="@string/chocolate"
             android:textSize="@dimen/text_size"
-            android:layout_marginLeft="@dimen/margin"
-            android:paddingLeft="@dimen/padding" />
+            android:layout_marginStart="@dimen/margin"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,28 +84,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="@dimen/margin"
-            android:visibility="visible">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:text="@string/currency_sign" />
-
-            <TextView
-                android:id="@+id/price_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:text="@integer/price_value" />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/order_summary_text_view"

@@ -4,15 +4,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private int quantity;
-    private int price;
+    private int price = 2;
     private String addWhipped = "";
     private String addChocolate = "";
+    private String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,44 +23,54 @@ public class MainActivity extends AppCompatActivity {
 
         TextView initialQuantity = findViewById(R.id.quantity_text_view);
         quantity = Integer.parseInt(initialQuantity.getText().toString());
-
-        TextView pricePerOne = findViewById(R.id.price_text_view);
-        price = Integer.parseInt(pricePerOne.getText().toString());
     }
 
     public void increment(View view) {
         quantity++;
-        displayDefaults();
+        price = price + 2;
+        displayQuantity(quantity);
     }
 
     public void decrement(View view) {
         if (quantity != 0) {
             quantity--;
+            price = price - 2;
         }
-        displayDefaults();
+        displayQuantity(quantity);
     }
 
     public void orderSummaryTextView(View view) {
+
+        getNameAndAddings();
+
+        if (addWhipped != "" && addChocolate != "") {
+            displayMessage("Name: " + name + "\nBlack coffee\n" + addWhipped + "\n" + addChocolate +"\nQuantity: "
+                    + quantity + "\nTotal: " + price + " EUR\nThank you!");
+        } else if (addChocolate != "") {
+            displayMessage("Name: " + name + "\nBlack coffee\n" + addChocolate +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        } else if (addWhipped != "") {
+            displayMessage("Name: " + name + "\nBlack coffee\n" + addWhipped +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        } else {
+            displayMessage("Name: " + name + "\nBlack coffee" +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        }
+    }
+
+    private void getNameAndAddings() {
+        EditText nameValue = findViewById(R.id.name);
+        name = nameValue.getText().toString();
+
         CheckBox whipping = findViewById(R.id.check_whipped);
         if (whipping.isChecked()) {
             checkAddings("whipping");
+            price = price + quantity;
         }
         CheckBox chocolate = findViewById(R.id.check_chocolate);
         if (chocolate.isChecked()) {
             checkAddings("chocolate");
-        }
-        if (addWhipped != "" && addChocolate != "") {
-            displayMessage("Black coffee\n" + addWhipped + "\n" + addChocolate +"\nQuantity: "
-                    + quantity + "\nTotal: " + price + " EUR\nThank you!");
-        } else if (addChocolate != "") {
-            displayMessage("Black coffee\n" + addChocolate +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
-        } else if (addWhipped != "") {
-            displayMessage("Black coffee\n" + addWhipped +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
-        } else {
-            displayMessage("Black coffee" +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
+            price = price + quantity;
         }
     }
 
@@ -67,29 +79,12 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + quantity);
     }
 
-    private void displayPrice(int price) {
-        TextView priceTextView = findViewById(R.id.price_text_view);
-        priceTextView.setText("" + price);
-    }
-
     private void displayMessage(String message) {
-        LinearLayout priceView = findViewById(R.id.price);
-        priceView.setVisibility(View.GONE);
         TextView headerOrderSummary = findViewById(R.id.order_summary_text_view);
         headerOrderSummary.setVisibility(View.VISIBLE);
         TextView priceTextView = findViewById(R.id.order_summary);
         priceTextView.setVisibility(View.VISIBLE);
         priceTextView.setText(message);
-    }
-
-    private void displayDefaults() {
-        displayQuantity(quantity);
-        getPrice();
-        displayPrice(price);
-    }
-
-    private int getPrice() {
-        return price = quantity * price;
     }
 
     private void checkAddings(String adding) {
@@ -98,6 +93,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             addChocolate = addChocolate + "Add chocolate";
         }
-        price = price + 1 * quantity;
     }
 }
