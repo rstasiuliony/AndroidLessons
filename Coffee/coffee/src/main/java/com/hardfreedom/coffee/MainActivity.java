@@ -3,6 +3,7 @@ package com.hardfreedom.coffee;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -10,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int quantity;
     private int price;
-    private int finalPrice = 0;
+    private String addWhipped = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void orderSummaryTextView(View view) {
-        displayMessage("Name: Renata\nQuantity: " + quantity +
-                "\nTotal: " + finalPrice + " EUR\nThank you!");
+        CheckBox whipping = findViewById(R.id.check_whipped);
+        checkAddings(whipping);
+        if (addWhipped != "") {
+            displayMessage("Black coffee\n" + addWhipped +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        } else {
+            displayMessage("Black coffee" +"\nQuantity: " + quantity +
+                    "\nTotal: " + price + " EUR\nThank you!");
+        }
     }
 
     private void displayQuantity(int quantity) {
@@ -63,11 +71,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayDefaults() {
         displayQuantity(quantity);
-        getFinalPrice();
-        displayPrice(finalPrice);
+        getPrice();
+        displayPrice(price);
     }
 
-    private int getFinalPrice() {
-        return finalPrice = quantity * price;
+    private int getPrice() {
+        return price = quantity * price;
+    }
+
+    private void checkAddings(CheckBox adding) {
+        if(adding.isChecked() == true) {
+            price = price + 1 * quantity;
+            addWhipped = addWhipped + "Add whipped cream";
+        }
     }
 }

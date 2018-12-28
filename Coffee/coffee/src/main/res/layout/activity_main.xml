@@ -4,13 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="@dimen/margin"
     tools:context="com.hardfreedom.coffee.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
-        android:text="@string/column_name"
+        android:text="@string/column_checkbox"
+        android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/check_whipped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/whipped"
+        android:textSize="@dimen/text_size"
+        android:layout_marginLeft="@dimen/margin"
+        android:paddingLeft="@dimen/padding" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/column_quantity"
         android:textAllCaps="true" />
 
     <LinearLayout
@@ -47,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/margin"
         android:visibility="visible">
 
         <TextView
