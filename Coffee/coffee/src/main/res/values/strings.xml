@@ -8,7 +8,6 @@
     <string name="chocolate">Chocolate</string>
     <string name="order">Order</string>
     <string name="column_summary">Order Summary</string>
-    <string name="currency_sign" translatable="false">&#8364;</string>
     <string name="plus" translatable="false">&#43;</string>
     <string name="minus" translatable="false">&#45;</string>
     <string name="reset">Reset</string>
