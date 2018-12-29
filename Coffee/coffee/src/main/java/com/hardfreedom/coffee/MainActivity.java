@@ -1,5 +1,7 @@
 package com.hardfreedom.coffee;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,11 +64,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sentEmailForOrder(String message) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","ivairus@group.lt", null));
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.fromParts("mailto","ivairus@group.lt", null));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order");
         intent.putExtra(Intent.EXTRA_TEXT, message);
-        startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+        try {
+            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void getNameAndAddings() {
