@@ -1,5 +1,7 @@
 package com.hardfreedom.coffee;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decrement(View view) {
-        if (quantity != 0) {
+        if (quantity != 1) {
             quantity--;
             price = price - 2;
         }
@@ -56,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             displayMessage("Name: " + name + "\nBlack coffee" +"\nQuantity: " + quantity +
                     "\nTotal: " + price + " EUR\nThank you!");
         }
+    }
+
+    private void sentEmailForOrder(String message) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto","ivairus@group.lt", null));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(intent, "Choose an Email client :"));
     }
 
     private void getNameAndAddings() {
@@ -85,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = findViewById(R.id.order_summary);
         priceTextView.setVisibility(View.VISIBLE);
         priceTextView.setText(message);
+        sentEmailForOrder(message);
     }
 
     private void checkAddings(String adding) {
