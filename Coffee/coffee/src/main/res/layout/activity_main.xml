@@ -103,12 +103,31 @@
             android:text=""
             android:visibility="gone" />
 
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
-            android:onClick="orderSummaryTextView"
-            android:text="@string/button"
-            android:textAllCaps="true" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:onClick="orderSummaryTextView"
+                android:text="@string/order"
+                android:textAllCaps="true"
+                />
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:onClick="resetEverything"
+                android:text="@string/reset"
+                android:textAllCaps="true"
+                android:visibility="invisible" />
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

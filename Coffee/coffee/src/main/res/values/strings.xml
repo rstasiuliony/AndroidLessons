@@ -6,11 +6,12 @@
     <string name="name">Your name</string>
     <string name="whipped">Whipped cream</string>
     <string name="chocolate">Chocolate</string>
-    <string name="button">Order</string>
+    <string name="order">Order</string>
     <string name="column_summary">Order Summary</string>
     <string name="currency_sign" translatable="false">&#8364;</string>
     <string name="plus" translatable="false">&#43;</string>
     <string name="minus" translatable="false">&#45;</string>
+    <string name="reset">Reset</string>
 
     <!-- JAVA Strings -->
     <string name="user_name">Name: <xliff:g id="pl_naming">%s</xliff:g></string>

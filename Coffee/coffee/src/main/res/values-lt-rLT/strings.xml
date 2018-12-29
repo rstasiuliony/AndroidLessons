@@ -6,8 +6,10 @@
     <string name="name">Jūsų vardas</string>
     <string name="whipped">Plakta grietinėlė</string>
     <string name="chocolate">Šokoladas</string>
-    <string name="button">Užsakymas</string>
+    <string name="order">Užsakymas</string>
     <string name="column_summary">Užsisakėte:</string>
+    <string name="reset">Ištrinti</string>
+
     <string name="user_name">Vardas: <xliff:g id="pl_naming">%s</xliff:g></string>
     <string name="black_coffee">Juoda kava</string>
     <string name="add_whipped">Pridėti plaktos grietinėlės</string>
