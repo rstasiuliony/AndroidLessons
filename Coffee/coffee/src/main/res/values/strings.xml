@@ -1,4 +1,5 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Coffee</string>
     <string name="column_quantity">Quantity</string>
     <string name="column_checkbox">Toppings</string>
@@ -7,7 +8,15 @@
     <string name="chocolate">Chocolate</string>
     <string name="button">Order</string>
     <string name="column_summary">Order Summary</string>
-    <string name="currency_sign">&#8364;</string>
-    <string name="plus">&#43;</string>
-    <string name="minus">&#45;</string>
+    <string name="currency_sign" translatable="false">&#8364;</string>
+    <string name="plus" translatable="false">&#43;</string>
+    <string name="minus" translatable="false">&#45;</string>
+
+    <!-- JAVA Strings -->
+    <string name="user_name">Name: <xliff:g id="pl_naming">%s</xliff:g></string>
+    <string name="black_coffee">Black coffee</string>
+    <string name="add_whipped">Add whipped cream</string>
+    <string name="add_chocolate">Add chocolate</string>
+    <string name="quantity">Quantity: <xliff:g id="pl_quantity">%d</xliff:g></string>
+    <string name="total">Total EUR: <xliff:g id="pl_total">%d</xliff:g></string>
 </resources>

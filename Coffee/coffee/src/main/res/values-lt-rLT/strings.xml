@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Coffee</string>
+    <string name="column_quantity">Kiekis</string>
+    <string name="column_checkbox">Priedai</string>
+    <string name="name">Jūsų vardas</string>
+    <string name="whipped">Plakta grietinėlė</string>
+    <string name="chocolate">Šokoladas</string>
+    <string name="button">Užsakymas</string>
+    <string name="column_summary">Užsisakėte:</string>
+    <string name="user_name">Vardas: <xliff:g id="pl_naming">%s</xliff:g></string>
+    <string name="black_coffee">Juoda kava</string>
+    <string name="add_whipped">Pridėti plaktos grietinėlės</string>
+    <string name="add_chocolate">Pridėti šokolado</string>
+    <string name="quantity">Kiekis: <xliff:g id="pl_quantity">%d</xliff:g></string>
+    <string name="total">Kaina EUR: <xliff:g id="pl_total">%d</xliff:g></string>
+</resources>

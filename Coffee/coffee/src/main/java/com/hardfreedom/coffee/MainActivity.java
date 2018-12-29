@@ -1,6 +1,5 @@
 package com.hardfreedom.coffee;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,23 +47,31 @@ public class MainActivity extends AppCompatActivity {
         getNameAndAddings();
 
         if (addWhipped != "" && addChocolate != "") {
-            displayMessage("Name: " + name + "\nBlack coffee\n" + addWhipped + "\n" + addChocolate +"\nQuantity: "
-                    + quantity + "\nTotal: " + price + " EUR\nThank you!");
+            displayMessage(getString(R.string.user_name, name)
+                    + "\n" + getString(R.string.black_coffee) + "\n"
+                    + addWhipped + "\n" + addChocolate + "\n" + getString(R.string.quantity, quantity)
+                    + "\n" + getString(R.string.total, price));
         } else if (addChocolate != "") {
-            displayMessage("Name: " + name + "\nBlack coffee\n" + addChocolate +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
+            displayMessage(getString(R.string.user_name, name)
+                    + "\n" + getString(R.string.black_coffee) + "\n"
+                    + addChocolate + "\n" + getString(R.string.quantity, quantity)
+                    + "\n" + getString(R.string.total, price));
         } else if (addWhipped != "") {
-            displayMessage("Name: " + name + "\nBlack coffee\n" + addWhipped +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
+            displayMessage(getString(R.string.user_name, name)
+                    + "\n" + getString(R.string.black_coffee) + "\n"
+                    + addWhipped + "\n" + getString(R.string.quantity, quantity)
+                    + "\n" + getString(R.string.total, price));
         } else {
-            displayMessage("Name: " + name + "\nBlack coffee" +"\nQuantity: " + quantity +
-                    "\nTotal: " + price + " EUR\nThank you!");
+            displayMessage(getString(R.string.user_name, name)
+                    + "\n" + getString(R.string.black_coffee) + "\n"
+                    + "\n" + getString(R.string.quantity, quantity)
+                    + "\n" + getString(R.string.total, price));
         }
     }
 
     private void sentEmailForOrder(String message) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.fromParts("mailto","ivairus@group.lt", null));
+        intent.setData(Uri.fromParts("mailto", "ivairus@group.lt", null));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order");
         intent.putExtra(Intent.EXTRA_TEXT, message);
         try {
@@ -107,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkAddings(String adding) {
         if (adding.equals("whipping")) {
-            addWhipped = addWhipped + "Add whipped cream";
+            addWhipped = addWhipped + getString(R.string.add_whipped);
         } else {
-            addChocolate = addChocolate + "Add chocolate";
+            addChocolate = addChocolate + getString(R.string.add_chocolate);
         }
     }
 }
