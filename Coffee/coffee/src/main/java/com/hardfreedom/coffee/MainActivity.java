@@ -1,8 +1,5 @@
 package com.hardfreedom.coffee;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +7,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void orderSummaryTextView(View view) {
-
         getNameAndAddings();
-
         if (!addWhipped.equals("") && !addChocolate.equals("")) {
             displayMessage(getString(R.string.user_name, name)
                     + "\n" + getString(R.string.black_coffee) + "\n"
@@ -76,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetEverything(View view){
         quantity = 1;
-
         price = 2;
         addWhipped = "";
         addChocolate = "";
@@ -92,18 +85,6 @@ public class MainActivity extends AppCompatActivity {
         order.setVisibility(View.VISIBLE);
         order.setEnabled(true);
         reset.setVisibility(View.INVISIBLE);
-    }
-
-    private void sentEmailForOrder(String message) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.fromParts("mailto", "ivairus@group.lt", null));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order");
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-        try {
-            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-        } catch (ActivityNotFoundException ex) {
-            Toast.makeText(this, "No email clients installed.", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void getNameAndAddings() {
@@ -137,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
         order.setEnabled(false);
         reset = findViewById(R.id.button_reset);
         reset.setVisibility(View.VISIBLE);
-        sentEmailForOrder(message);
+        Emailing e = new Emailing(this);
+        e.sentEmailForOrder(message, "ivairus@group.lt", "Coffee Order");
     }
 
     private void checkAddings(String adding) {
