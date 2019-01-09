@@ -46,29 +46,29 @@ public class MainActivity extends AppCompatActivity {
     public void orderSummaryTextView(View view) {
         getNameAndAddings();
         if (!addWhipped.equals("") && !addChocolate.equals("")) {
-            displayMessage(getString(R.string.user_name, name)
+            displayOrder(getString(R.string.user_name, name)
                     + "\n" + getString(R.string.black_coffee) + "\n"
                     + addWhipped + "\n" + addChocolate + "\n" + getString(R.string.quantity, quantity)
                     + "\n" + getString(R.string.total, price));
         } else if (!addChocolate.equals("")) {
-            displayMessage(getString(R.string.user_name, name)
+            displayOrder(getString(R.string.user_name, name)
                     + "\n" + getString(R.string.black_coffee) + "\n"
                     + addChocolate + "\n" + getString(R.string.quantity, quantity)
                     + "\n" + getString(R.string.total, price));
         } else if (!addWhipped.equals("")) {
-            displayMessage(getString(R.string.user_name, name)
+            displayOrder(getString(R.string.user_name, name)
                     + "\n" + getString(R.string.black_coffee) + "\n"
                     + addWhipped + "\n" + getString(R.string.quantity, quantity)
                     + "\n" + getString(R.string.total, price));
         } else {
-            displayMessage(getString(R.string.user_name, name)
+            displayOrder(getString(R.string.user_name, name)
                     + "\n" + getString(R.string.black_coffee)
                     + "\n" + getString(R.string.quantity, quantity)
                     + "\n" + getString(R.string.total, price));
         }
     }
 
-    public void resetEverything(View view){
+    public void resetOrder(View view) {
         quantity = 1;
         price = 2;
         addWhipped = "";
@@ -76,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
         nameValue.getText().clear();
         headerOrderSummary.setVisibility(View.GONE);
         priceTextView.setVisibility(View.GONE);
-        if (whipping.isChecked()){
+        if (whipping.isChecked()) {
             whipping.toggle();
         }
-        if (chocolate.isChecked()){
+        if (chocolate.isChecked()) {
             chocolate.toggle();
         }
         order.setVisibility(View.VISIBLE);
@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     private void getNameAndAddings() {
         nameValue = findViewById(R.id.name);
         name = nameValue.getText().toString();
-
         whipping = findViewById(R.id.check_whipped);
         if (whipping.isChecked()) {
             checkAddings("whipping");
@@ -108,18 +107,22 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + quantity);
     }
 
-    private void displayMessage(String message) {
+    private void displayOrder(String orderDetails) {
+        showOrderVisuals();
+        priceTextView.setText(orderDetails);
+        Emailing e = new Emailing(this);
+        e.sentEmailForOrder(orderDetails, "ivairus@group.lt", "Coffee Order");
+    }
+
+    private void showOrderVisuals() {
         headerOrderSummary = findViewById(R.id.order_summary_text_view);
         headerOrderSummary.setVisibility(View.VISIBLE);
         priceTextView = findViewById(R.id.order_summary);
         priceTextView.setVisibility(View.VISIBLE);
-        priceTextView.setText(message);
         order = findViewById(R.id.button_order);
         order.setEnabled(false);
         reset = findViewById(R.id.button_reset);
         reset.setVisibility(View.VISIBLE);
-        Emailing e = new Emailing(this);
-        e.sentEmailForOrder(message, "ivairus@group.lt", "Coffee Order");
     }
 
     private void checkAddings(String adding) {

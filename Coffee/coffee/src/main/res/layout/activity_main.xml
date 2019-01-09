@@ -88,7 +88,7 @@
             <Button
                 android:id="@+id/button_reset"
                 style="@style/BigButton"
-                android:onClick="resetEverything"
+                android:onClick="resetOrder"
                 android:text="@string/reset"
                 android:visibility="invisible" />
         </LinearLayout>
